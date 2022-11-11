@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>Coffee Masters</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com"> 
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+
+
+    <link rel="stylesheet" href="styles.css">
+    <link rel="manifest" href="app.webmanifest">
+    <link rel="apple-touch-icon" href="images/icons/icon.png">
+    <link rel="icon" href="images/icons/icon.png">
+
+    <script src="scripts/app.js" type="module"></script>
+
+</head>
+
+<body>
+    <header>
+        <h1><img src="images/logo.svg" width="140" alt="Coffee Masters"></h1>
+        <nav>
+            <a class="navlink material-symbols-outlined" id="linkHome" href="/">
+                    local_cafe
+            </a>
+            <a class="navlink material-symbols-outlined" id="linkOrder" href="/account">
+                    account_box
+            </a>
+        </nav>
+    </header>
+
+    <main>
+
+        <section class="page" id="home">
+            <header>
+                <h2>Welcome!<h2>
+            </header>
+
+            <section class="logged_out">
+                <p>You are currently logged out.</p>
+                <p><a href="/login" class="navlink">Log in</a>.</p>
+            </section>
+      
+            <section class="logged_in">
+                <p>You are currently logged in as <span class='account_name' class="navlink"></span>.</p>
+                <p>You can see details of your <a href='/account' class="navlink">Account</a></p>
+            </section>       
+        </section>
+
+        <section class="page"  id="register">
+            <h2>Register</h2>
+            <form id="formRegister">
+                <fieldset>
+                    <input placeholder="You Name" id="register_name"
+                            required>
+                    <input placeholder="Your email" id="register_email" 
+                            required type="email">
+                    
+                    <label>Your Password</label>
+                    <input type="password" id="register_password"
+                            required>
+                </fieldset>
+
+                <button>Register Account</button>
+            </form>
+        </section>
+
+        <section class="page" id="login">
+            <h2>Log In</h2>
+
+            <form id="formLogin">
+                <fieldset>
+                    <input placeholder="email" id="login_email"
+                        required>      
+                    <label for="login_password">Password</label>
+                    <input type="password" id="login_password"
+                       >
+                </fieldset>
+                <button>Continue</button>
+
+                <p>
+                    <a href="/register" class="navlink">Register a new account instead</a> 
+                </p>                   
+                
+                </fieldset>
+            </form>            
+        </section>
+
+         
+        <section class="page"  id="account">
+            <h2>My Account</h2>
+            <dl>
+                <dt>Name</dt>
+                <dd class="account_name"></dd>
+                <dt>Email</dt>
+                <dd class="account_username"></dd>
+            </dl>
+
+            <button onclick="Auth.logout()">Log out</button>
+        </section>
+    </main>
+</body>
+</html>

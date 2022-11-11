@@ -1,0 +1,70 @@
+{
+  "name": "lowdb",
+  "version": "5.0.5",
+  "description": "Tiny local JSON database for Node, Electron and the browser",
+  "keywords": [
+    "database",
+    "db",
+    "electron",
+    "embed",
+    "embedded",
+    "flat",
+    "JSON",
+    "local",
+    "localStorage",
+    "browser",
+    "esm"
+  ],
+  "homepage": "https://github.com/typicode/lowdb#readme",
+  "bugs": {
+    "url": "https://github.com/typicode/lowdb/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/typicode/lowdb.git"
+  },
+  "funding": "https://github.com/sponsors/typicode",
+  "license": "MIT",
+  "author": "Typicode <typicode@gmail.com>",
+  "type": "module",
+  "exports": {
+    ".": "./lib/index.js",
+    "./node": "./lib/node.js",
+    "./browser": "./lib/browser.js"
+  },
+  "types": "lib",
+  "files": [
+    "lib",
+    "!lib/**/*.test.*"
+  ],
+  "scripts": {
+    "test": "npm run build && xv lib",
+    "lint": "eslint src --ext .ts --ignore-path .gitignore",
+    "build": "del-cli lib && tsc",
+    "prepublishOnly": "npm run build",
+    "postversion": "git push --follow-tags && npm publish",
+    "prepare": "husky install"
+  },
+  "dependencies": {
+    "steno": "^3.0.0"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^17.1.2",
+    "@commitlint/config-conventional": "^17.1.0",
+    "@commitlint/prompt-cli": "^17.1.2",
+    "@sindresorhus/tsconfig": "^3.0.1",
+    "@types/lodash": "^4.14.186",
+    "@types/node": "^18.11.3",
+    "@typicode/eslint-config": "^1.1.0",
+    "del-cli": "^5.0.0",
+    "eslint": "^8.26.0",
+    "husky": "^8.0.1",
+    "lodash": "^4.17.21",
+    "tempy": "^3.0.0",
+    "typescript": "^4.8.4",
+    "xv": "^1.1.1"
+  },
+  "engines": {
+    "node": ">=14.16"
+  }
+}
