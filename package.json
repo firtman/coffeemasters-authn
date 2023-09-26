@@ -11,6 +11,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@simplewebauthn/browser": "^8.0.2",
     "@simplewebauthn/server": "^6.2.2",
     "base64url": "^3.0.1",
     "bcryptjs": "^2.4.3",

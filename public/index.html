@@ -17,6 +17,7 @@
     <link rel="icon" href="images/icons/icon.png">
 
     <script src="scripts/app.js" type="module"></script>
+    <script src="https://unpkg.com/@simplewebauthn/browser/dist/bundle/index.umd.min.js"></script>
 
 </head>
 
@@ -53,24 +54,10 @@
 
         <section class="page"  id="register">
             <h2>Register</h2>
-            <!-- <form id="formRegister">
-                <fieldset>
-                    <input placeholder="You Name" id="register_name"
-                            required>
-                    <input placeholder="Your email" id="register_email" 
-                            required type="email">
-                    
-                    <label>Your Password</label>
-                    <input type="password" id="register_password"
-                            required>
-                </fieldset>
-
-                <button>Register Account</button>
-            </form> -->
             <form id="formRegister" onsubmit="Auth.register(event)">
                 <fieldset>
                     <label for="register_name">Name</label>
-                    <input placeholder="Name" id="register_name"
+                    <input placeholder="Your Full Name" id="register_name"
                             required autocomplete="name">
                     <label for="register_email">E-mail (your username)</label>
                     <input placeholder="Email" id="register_email" 
@@ -80,46 +67,30 @@
                     <input type="password" id="register_password"
                             required autocomplete="new-password">
                 </fieldset>
-            
-                <button>Register Account</button>
+               
+                <button type="submit">Register Account</button>
             </form>
         </section>
 
         <section class="page" id="login">
             <h2>Log In</h2>
 
-            <!-- <form id="formLogin">
-                <fieldset>
-                    <input placeholder="email" id="login_email"
-                        required>      
-                    <label for="login_password">Password</label>
-                    <input type="password" id="login_password"
-                       >
-                </fieldset>
-                <button>Continue</button>
-
-                <p>
-                    <a href="/register" class="navlink">Register a new account instead</a> 
-                </p>                   
-                
-                </fieldset>
-            </form>             -->
             <form id="formLogin" onsubmit="Auth.login(event)">
                 <fieldset>
                     <label for="login_email">E-mail</label>
                     <input placeholder="email" id="login_email"
                         required autocomplete="webauthn username">      
-                    <section hidden id="login_section_password">              
+                    <section id="login_section_password">              
                         <label for="login_password">Password</label>
                         <input type="password" id="login_password"
                             autocomplete="webauthn current-password">
                     </section>                                      
                     <section hidden id="login_section_webauthn">
-                        <a href="#" class="navlink" onclick="Auth.webAuthnLogin(); event.preventDefault">Log in with your Authenticator</a> 
+                        <a href="#" class="navlink" onclick="Auth.webAuthnLogin(); event.preventDefault">Use Passkey instead of Password</a> 
                     </section>                                      
                 </fieldset>
-                <button>Continue</button>
-            
+                <button type="submit">Continue</button>
+                
                 <p>
                     <a href="/register" class="navlink">Register a new account instead</a> 
                 </p>                   
@@ -136,7 +107,9 @@
                 <dt>Email</dt>
                 <dd class="account_username"></dd>
             </dl>
-
+            <section id="webauthn">
+                <button onclick="Auth.addWebAuthn()">Add Authenticator / Passkey</button>
+            </section>
             <button onclick="Auth.logout()">Log out</button>
         </section>
     </main>
